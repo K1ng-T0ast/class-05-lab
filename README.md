@@ -1,3 +1,5 @@
+<img src="lab5.png">
+
 # Lab: Fun with Functions
 
 ## Problem Domain
