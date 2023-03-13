@@ -31,7 +31,7 @@ function multiply(a = 5, b = 9) { //eslint-disable-line
 }
 
 // Here is the test for multiply(); uncomment it to run it
-testMultiply(5,9);
+testMultiply(5, 9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -47,12 +47,24 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function sumAndMultiply(a = 4, b = 7, c = 5) { //eslint-disable-line
-    return [a + b + c, a * b * c, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.'];
+function sumAndMultiply(a, b, c) { //eslint-disable-line
+    // return [a + b + c, a * b * c, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.'];
+
+  // let sum = a + b + c;
+  let s1 = sum(a,b)[0];
+  let s2 = sum(s1, c)[0];
+  // let product = a * b * c;
+  let p1 = multiply(a, b)[0];
+  let p2 = multiply(p1, c)[0];
+  let sumString = '4 and 7 and 5 sum to 16.';
+  let productString = 'The product of 4 and 7 and 5 is 140.';
+
+
+  return [s2, p2, sumString, productString];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -70,10 +82,18 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-    let sum = 0;
-    for (let i =0; i < sumArr.length; i++)
-    sum += sumArr[i];
-    return [sum, '2,3,4 was passed in as an array of numbers, and 9 is their sum.'];
+//     let sum = 0;
+//     for (let i = 0; i < sumArr.length; i++)
+//         sum += sumArr[i];
+//     return [sum, '2,3,4 was passed in as an array of numbers, and 9 is their sum.'];
+// }
+
+let sum1 = sum(sumArr[0], sumArr[1])[0];
+let sum2 = sum(sum1, sumArr[2])[0];
+
+let sumString = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${sum2} is their sum.`;
+
+return [sum2, sumString];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
@@ -94,10 +114,19 @@ Test this function by hand in the console to get it working, and when you think 
 let testArrays = [2, 3, 4];
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-    let output = 1;
-    for (let i = 0; i < multArr.length; i++)
-    output *= multArr[i];
-    return [output, 'The numbers 2,3,4 have a product of 24.'];
+//     let output = 1;
+//     for (let i = 0; i < multArr.length; i++)
+//         output *= multArr[i];
+//     return [output, 'The numbers 2,3,4 have a product of 24.'];
+// }
+  // let x = multArr[0] * multArr[1];
+  let product1 = multiply(multArr[0], multArr[1])[0];
+  let product2 = multiply(product1, multArr[2])[0];
+
+  let string = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product2}.`;
+
+  return[product2, string];
+
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
@@ -122,12 +151,12 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
+let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
     let anyOutput = 1;
     for (let i = 0; i < dynamicArray.length; i++)
-    anyOutput *= dynamicArray[i];
+        anyOutput *= dynamicArray[i];
     return [anyOutput, 'The numbers 1,2,3,4,5 have a product of 120.'];
 
 }
